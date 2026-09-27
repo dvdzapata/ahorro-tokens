@@ -20,7 +20,7 @@ Regla de oro: se recorta el ruido, **nunca la explicación**. DVD quiere entende
 
 Medido en archivos reales de gentilicios: CSV de 22 MB → 785 car.; JSON de 23 MB → 4.000 car.; script de 916 líneas → 700 car.; build con error enterrado → 98 % menos y el error localizado con su nº de línea.
 
-**Dónde están los scripts** (los cuatro, Python 3, sin dependencias). Fuente única: repo GitHub `dvdzapata/ahorro-tokens` (https://github.com/dvdzapata/ahorro-tokens) (carpeta `scripts/`).
+**Dónde están los scripts** (los cuatro, Python 3, sin dependencias). Fuente única: repo GitHub https://github.com/dvdzapata/ahorro-tokens (carpeta `scripts/`).
 - Windows (DVD): `C:\Users\dvdza\ahorro-tokens\scripts\` — ejecutar con `python`. Actualizar: `git -C C:\Users\dvdza\ahorro-tokens pull -q`.
 - Servidor Ubuntu: `~/ahorro-tokens/scripts/` — ejecutar con `python3`. Actualizar: `git -C ~/ahorro-tokens pull -q`.
 - Sesión en la nube: añadir el repo a la sesión y clonarlo una vez (`git clone -q …`), luego usar `scripts/` desde ahí.
@@ -68,7 +68,9 @@ Medido en archivos reales de gentilicios: CSV de 22 MB → 785 car.; JSON de 23 
 | `ls` filtrado | `Get-ChildItem -File -Filter *.csv \| Sort Length -Desc \| Select -First 10 Name,Length` |
 | `jq` | `json_pick.py` |
 
-- Python: `python` = 3.14 (también existe `py` = 3.13).
+- Python: `python` = 3.14 (también existe `py` = 3.13). Hay `git`, no hay `gh`.
+- Git tiene `core.autocrlf=true`: los archivos clonados salen con CRLF y su hash no coincide con la copia LF aunque el contenido sea idéntico. Comparar normalizando saltos de línea antes de concluir que "son distintos".
+- Borrar en carpetas de proyecto: borrar solo el elemento concreto, tras comprobar su contenido; no pedir permisos de borrado sobre la carpeta entera del proyecto.
 - Las respuestas de la herramienta de PowerShell pueden tardar; si un comando no responde en 60 s, no relanzarlo igual: acotarlo.
 
 **Servidor Ubuntu 24.04:**
